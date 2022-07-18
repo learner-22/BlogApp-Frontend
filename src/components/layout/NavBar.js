@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 const NavBar =() =>{
     return(
-        <nav>
+        <nav class="navbar navbar-expand-lg bg-light">
             <ul className = 'nav'>
             <li className = 'nav-item'> <NavLink  className = 'nav-link' to = '/home'> Home </NavLink> </li>
             <li className = 'nav-item'> <NavLink className = 'nav-link' to = '/about'> About </NavLink> </li>
