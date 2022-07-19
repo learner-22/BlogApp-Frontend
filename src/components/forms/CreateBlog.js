@@ -11,7 +11,7 @@ const CreateBlog =(props) =>{
       const handleSubmit =(e) =>{
 
         e.preventDefault()
-        formData.created_by = props.user._id
+        formData.created_by = props.user.username
         axios.post('http://localhost:4000/blogs', formData,{
             headers: {
                 'x-auth-token': localStorage.getItem('userToken')
@@ -29,6 +29,7 @@ const CreateBlog =(props) =>{
         <div>
 
 <form onSubmit={handleSubmit}>
+      <div className="mb-3">
         <label className="form-label" htmlFor="title">
           Title
         </label>
@@ -42,7 +43,8 @@ const CreateBlog =(props) =>{
             setFormData({ ...formData, [e.target.id]: e.target.value })
           }
         />
-  
+         </div>
+
         <div className="mb-3">
           <label className="form-label" htmlFor="details">
             Details
@@ -59,7 +61,7 @@ const CreateBlog =(props) =>{
           />
         </div>
   
-        <input type="submit" className="btn btn-success" />
+        <input type="submit" className="btn btn-secondary" />
       </form>
 
         </div>
