@@ -24,6 +24,10 @@ const Home =(props) =>{
         }).then(res=>setblogData([...blogData.filter(b =>b._id !== blog._id)])).catch(err => console.error(err))
 
     }
+
+    const handleUpdate =(blog) =>{
+       history.push(`/update/${blog._id}`)
+    }
     return(
         <div>
             <h1> Blogs Home Page</h1>
@@ -35,8 +39,8 @@ const Home =(props) =>{
                     <h5> Title : {blog.blog_title}</h5>
                     <h6> Content : {blog.blog_content}</h6>
                     <h6> Author : {blog.created_by}</h6>
-                    {blog.user === props.user._id && <span className="btn btn-danger" onClick ={ () => handleDelete (blog)}> Delete </span>}
-                    <span className="btn btn-warning"> Update </span>
+                    {blog.user === props.user._id && <span className="btn btn-secondary" style = {{ margin : '20px'}} onClick ={ () => handleDelete (blog)}> Delete </span>}
+                    {blog.user === props.user._id && <span className="btn btn-secondary" onClick = { () => handleUpdate(blog)}> Update </span>}
                 </div>
             )
 
